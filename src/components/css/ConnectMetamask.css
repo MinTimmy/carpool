@@ -1,0 +1,28 @@
+.connect_container{
+    text-align: center;
+}
+.connect_btn {
+    display: flex;
+    /* 水平置中 */
+    justify-content: center;    
+    /* 垂直置中 */
+    align-items: center;          
+    background:#EBF2FA;
+    margin: 0.5rem auto;
+    padding: 0.7rem;
+    color: rgb(0, 0, 0);
+    border: 2px solid #030303;
+    font-size: 1rem;
+    /* box-shadow: 1px 10px 2rem rgba(255, 94, 98, 0.5); */
+    transition: all 0.2s ease-in;
+    text-decoration: none;
+  }
+  
+  .connect_btn:hover {
+    background:white;
+    box-shadow: 0px 5px 1rem rgba(219, 219, 219, 0.5);
+  }
+
+  .connect_container p{
+    margin: 2rem;
+  }

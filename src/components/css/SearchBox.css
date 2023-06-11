@@ -1,0 +1,19 @@
+/* search */
+.search_wrap {
+    margin: 0 0 3% 0;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+  }
+  .dropdown_select {
+    position: relative;
+    font-family: Arial;
+  }
+  
+  select{ 
+      display:block; 
+      height:32px; 
+      line-height:32px; 
+      font-size:14px; 
+      width:240px; 
+      margin: 0 auto;
+  }

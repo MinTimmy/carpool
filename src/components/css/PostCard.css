@@ -1,0 +1,60 @@
+/* post_card */
+
+.post_card {
+    background: #fff;
+    width: 80%;
+    margin: 5%;
+    padding: 5%;
+    /* max-width: 500px; */
+    border-radius: 10px;
+    box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  
+  .post_card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #999;
+    font-size: 1rem;
+  }
+  
+  .post_card h1 {
+    text-align: left;
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    color: #333;
+  }
+  
+  .post_card p {
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: #333;
+  }
+  .post_card td, th {
+    text-align: left;
+    padding: 8px;
+  }
+  .btn_primary {
+    display: flex;
+    /* 水平置中 */
+    justify-content: center;    
+    /* 垂直置中 */
+    align-items: center;          
+    background:#EBF2FA;
+    width: 6rem;
+    margin: 0.5rem auto;
+    padding: 0.7rem;
+    border-radius: 50px;
+    color: rgb(0, 0, 0);
+    border: 2px solid #EBF2FA;
+    font-size: 1rem;
+    /* box-shadow: 1px 10px 2rem rgba(255, 94, 98, 0.5); */
+    transition: all 0.2s ease-in;
+    text-decoration: none;
+  }
+  
+  .btn_primary:hover {
+    background:white;
+    box-shadow: 0px 5px 1rem rgba(219, 219, 219, 0.5);
+  }

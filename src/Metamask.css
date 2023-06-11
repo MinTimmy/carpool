@@ -1,0 +1,15 @@
+.metamask_btn{
+    padding: 0.7rem;
+    text-align: center;
+    text-decoration: none;
+    background: #030303;
+    color: rgb(255, 255, 255);    
+    border: 2px solid #EBF2FA;
+    margin: 1%;
+  }
+
+  .metamask_btn:hover {
+    color: rgb(0, 0, 0);
+    background:white;
+    box-shadow: 0px 5px 1rem rgba(219, 219, 219, 0.5);
+  } 
