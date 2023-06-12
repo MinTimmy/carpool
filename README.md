@@ -1,3 +1,6 @@
+```
+npm install web3 && npm install @babel/plugin-proposal-private-property-in-object && npm run build
+```
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
