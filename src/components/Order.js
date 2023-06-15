@@ -1,6 +1,8 @@
 import './css/AddPostAndOrder.css';
 import React from 'react';
 import OrderItem from './OrderItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRectangleList } from '@fortawesome/free-solid-svg-icons'
 import Web3 from "web3";
 
 const abi_contractList = require("../abi/ContractList.js");
@@ -119,8 +121,8 @@ function Order(props) {
     <>
       {/* fixed_button */}
       <a className='order_btn' href='#order_modal'>
-        <i className='fa-regular fa-rectangle-list'></i>
         <p>訂單</p>
+        <FontAwesomeIcon icon={faRectangleList} size='xl'/>                
       </a>
       {/* Order */}
       <div id='order_modal' className='modal'>

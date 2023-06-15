@@ -7,8 +7,10 @@ export default function PostCard(props){
     return (
         <div className="post_card" key={props.id}>
               {/* <h3>12 January 2019</h3> */}
+              <h2>{props.walletAddress.toLowerCase() === props.driverAddress.toLowerCase() ?  "你的PO文" : <br/>}</h2>
               <h3>{props.time}</h3>
-              <h1>{props.departure_county}→{props.destination_county} {props.walletAddress.toLowerCase() === props.driverAddress.toLowerCase() && "你是司機"}</h1>
+              
+              <h1>{props.departure_county}→{props.destination_county} </h1>
               <table>
                 <tbody>
                 <tr>

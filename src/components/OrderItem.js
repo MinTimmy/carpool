@@ -11,8 +11,11 @@ function OrderItem(props) {
         <>
             <div className='item'>
                 <div className='item_left'>
-                    <h2 className='num'>Have a</h2>
-                    <p className='day'>nice day</p>
+                <h2 className='num'>你是</h2>
+                {
+                    props.youAreDriver ? 
+                    <p className='day'>司機</p> : <p className='day'>乘客</p>
+                }
                     <span className='up-border'></span>
                     <span className='down-border'></span>
                 </div>
@@ -39,7 +42,6 @@ function OrderItem(props) {
                         <p>{props.price} ETH</p>
                     </div>
                     <div className='ticket_price'>
-                        {props.youAreDriver ? "你是司機" : "你是乘客"}
                     </div>
                     <div className='fix'></div>
                     <div className='ticket_price'>
@@ -70,7 +72,7 @@ function OrderItem(props) {
                             },
                             walletAddress: props.walletAddress,
                     }}
-                    >{props.youAreDriver ? "領錢" : "退費"}</Link> :
+                    className='tickets_btn'>{props.youAreDriver ? "領錢" : "退費"}</Link> :
 
                 </div>
 

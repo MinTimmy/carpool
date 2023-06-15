@@ -1,21 +1,20 @@
 import './css/AddPostAndOrder.css';
 import React from 'react';
 import { useState } from 'react';
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-const Web3 = require('web3');
+import { Link } from "react-router-dom";
 
 function AddPost(props) {
-    const [departureCounty, setDepartureCounty] = useState('台中');
-    const [destinationCounty, setDestinationCounty] = useState('台北');
-    const [departureDetail, setDepartureDetail] = useState('台中火車站');
-    const [destinationDetail, setDestinationDetail] = useState('台北轉運站');
-    const [time, setTime] = useState('2023-07-25 12:00:00');
-    const [price, setPrice] = useState('0.01');
-    const [remainPerson, setRemainPerson] = useState('3');
-    const [licensePlate, setLicensePlate] = useState('CBA-7777');
-    const [carModel, setCarModel] = useState('白');
+    const [departureCounty, setDepartureCounty] = useState('');
+    const [destinationCounty, setDestinationCounty] = useState('');
+    const [departureDetail, setDepartureDetail] = useState('');
+    const [destinationDetail, setDestinationDetail] = useState('');
+    const [time, setTime] = useState('');
+    const [price, setPrice] = useState('');
+    const [remainPerson, setRemainPerson] = useState('');
+    const [licensePlate, setLicensePlate] = useState('');
+    const [carModel, setCarModel] = useState('');
 
     return (
         <>
@@ -28,21 +27,21 @@ function AddPost(props) {
             <div id='add_post' className='modal'>
                 <div className='modal__content'>
                     <div className='add_post_container'>
+                        <input type='checkbox' id='chk' aria-hidden='true' />
+
+                        <div className='find_customers'>
                         <form>
                                 <label htmlFor='chk' aria-hidden='true'>
                                     我要找乘客
                                 </label>
-                                <h5>乘車時間</h5>
-                                <input type='' name='time' placeholder='2023-07-25 12:00:00' required onChange={e=>setTime(e.target.value)} />
-                                <h5 className='text_1'>出發縣市</h5>
+                                <input type='' name='time' placeholder='乘車時間' required onChange={e=>setTime(e.target.value)} />
                                 <div className='dropdown_select'>
                                     <select value={departureCounty} onChange={e=>setDepartureCounty(e.target.value)}>
-                                        <option>台中</option>
-                                        {/* <option>出發縣市:</option> */}
+                                        <option>出發縣市:</option>
                                         <option value='基隆市'>基隆市</option>
                                         <option value='台北市'>台北市</option>
                                         <option value='新北市'>新北市</option>
-                                        <option value='桃園市'>桃園市</option>
+                                        <option value='桃園縣'>桃園縣</option>
                                         <option value='新竹市'>新竹市</option>
                                         <option value='新竹縣'>新竹縣</option>
                                         <option value='苗栗縣'>苗栗縣</option>
@@ -63,24 +62,19 @@ function AddPost(props) {
                                         <option value='連江縣'>連江縣</option>
                                     </select>
                                 </div>
-
-                                <h5 className='text_2'>出發地</h5>
                                 <input
                                     type='departure'
                                     name='departure'
-                                    placeholder='台中火車站'
+                                    placeholder='出發地'
                                     required onChange={e=>setDepartureDetail(e.target.value)}
                                 />
-
-                                <h5 className='text_1'>目的縣市</h5>
                                 <div className='dropdown_select'>
                                 <select value={destinationCounty} onChange={e=>setDestinationCounty(e.target.value)}>
-                                        <option>台北</option>
-                                        {/* <option>目的縣市:</option> */}
+                                        <option>目的縣市:</option>
                                         <option value='基隆市'>基隆市</option>
                                         <option value='台北市'>台北市</option>
                                         <option value='新北市'>新北市</option>
-                                        <option value='桃園縣'>桃園市</option>
+                                        <option value='桃園縣'>桃園縣</option>
                                         <option value='新竹市'>新竹市</option>
                                         <option value='新竹縣'>新竹縣</option>
                                         <option value='苗栗縣'>苗栗縣</option>
@@ -101,81 +95,72 @@ function AddPost(props) {
                                         <option value='連江縣'>連江縣</option>
                                     </select>
                                 </div>
-
-                                <h5 className='text_2'>目的地</h5>
                                 <input
                                     type='destination'
                                     name='destination'
-                                    placeholder='台北轉運站'
+                                    placeholder='目的地'
                                     required onChange={e=>setDestinationDetail(e.target.value)}
                                 />
-                                
-                                <h5>行程價碼</h5>
                                 <input
                                     type='price'
                                     name='price'
-                                    // placeholder='0.00000000000001'
-                                    placeholder='0.01'
+                                    placeholder='行程價碼'
                                     required onChange={e=>setPrice(e.target.value)}
                                 />
-                                
-                                <h5>載客人數</h5>
                                 <input
                                     type='remain_person'
                                     name='remain_person'
-                                    placeholder='3'
+                                    placeholder='載客人數'
                                     required onChange={e=>setRemainPerson(e.target.value)}
-                                />                                
+                                />
                                 <p>車牌及車型 將會在乘客訂購完成時提供</p>
-
-                                <h5>車牌</h5>
                                 <input
                                     type='license_plate'
                                     name='license_plate'
-                                    placeholder='CBA-7777'
+                                    placeholder='車牌'
                                     required onChange={e=>setLicensePlate(e.target.value)}
                                 />
-
-                                <h5>車型外觀</h5>
                                 <input
                                     type='car_shape'
                                     name='car_shape'
-                                    placeholder='白'
+                                    placeholder='車型外觀'
                                     required onChange={e=>setCarModel(e.target.value)}
                                 />
                                 <Link to="/add_post/payment"
                                     state={{
                                         type: "find_customer",
-                                        // id:null,
-                                        // departure_county:"台中",
-                                        // destination_county:"台北",
-                                        // departure_detail:"台中火車站",
-                                        // destination_detail:"台北轉運站",
-                                        // time:"2023-07-25 12:00:00",
-                                        // price:"0.00000000000001",
-                                        // // price:"0.01",
-                                        // driver_information:{
-                                        //     license_plate:"CBA-7777",
-                                        //     car_model:"Discovery Sport 白",
-                                        //     remain_person:"3",
-                                        //     total_person:"3"
-                                        // },
                                         id:null,
-                                        departure_county:departureCounty,
-                                        destination_county:destinationCounty,
-                                        departure_detail:departureDetail,
-                                        destination_detail:destinationDetail,
-                                        time:time,
-                                        price:price,
+                                        departure_county:"台中",
+                                        destination_county:"台北",
+                                        departure_detail:"台中火車站",
+                                        destination_detail:"台北轉運站",
+                                        time:"2023-07-25 12:00:00",
+                                        price:"0.00000000000001",
+                                        // price:"0.01",
                                         driver_information:{
-                                            license_plate:licensePlate,
-                                            car_model:carModel,
-                                            remain_person:remainPerson,
-                                            total_person:remainPerson
+                                            license_plate:"CBA-7777",
+                                            car_model:"Discovery Sport 白",
+                                            remain_person:"3",
+                                            total_person:"3"
                                         },
+                                        // walletAddress: props.walletAddress,
+                                        // id:null,
+                                        // departure_county:departureCounty,
+                                        // destination_county:destinationCounty,
+                                        // departure_detail:departureDetail,
+                                        // destination_detail:destinationDetail,
+                                        // time:time,
+                                        // price:price,
+                                        // driver_information:{
+                                        //     license_plate:licensePlate,
+                                        //     car_model:carModel,
+                                        //     remain_person:remainPerson,
+                                        //     total_person:remainPerson
+                                        // },
                                         walletAddress: props.walletAddress,
                                  }} className="addPost_btn" >發文</Link>
                             </form>
+                        </div>
                     </div>
                     <a href='/' className='modal__close'>
                         &times;

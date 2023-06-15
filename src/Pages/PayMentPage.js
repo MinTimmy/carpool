@@ -197,21 +197,22 @@ function PayMentPage(props) {
           </div>
           <div className="payment-info">
             <h3>{postItem.type === "customer_refund" ? "退款資訊" : "付款資訊"}</h3>
+            {postItem.type === "find_customer" && (sendStatus   ? "已繳手續費": "尚未繳手續費")}
+
               <div className="btn_group">
                 {/* {txHash && <p>txHash: {txHash}</p>} */}
-                {postItem.type === "find_customer" && (sendStatus   ? "已繳手續費": "尚未繳手續費")}
 
                 <Link to="/" className="cancel_btn">取消</Link>
                 {
                   sendStatus ?
                     <Link to="/" className="confirm_btn">返回</Link> :
                     postItem.type === "customer_refund"  ? 
-                      <button onClick={customerRefund}>確認customerRefund</button> :
+                      <button onClick={customerRefund} className="confirm_btn">確認customerRefund</button> :
                     postItem.type === "find_customer" ? 
-                      <button onClick={makeNewOrder}>確認makeNewOrder</button> :
+                      <button onClick={makeNewOrder} className="confirm_btn">確認makeNewOrder</button> :
                     postItem.type === "driver_reward" ?
-                      <button onClick={driverRewarding}>確認driverReward</button> :
-                      <button onClick={sendMoney}>確認sendMoney</button>
+                      <button onClick={driverRewarding} className="confirm_btn">確認driverReward</button> :
+                      <button onClick={sendMoney} className="confirm_btn">確認sendMoney</button>
                       // console.log(postItem.type)
                 }
                 
